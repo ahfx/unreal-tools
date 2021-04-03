@@ -1,7 +1,7 @@
 update-deps:
 	pip-compile --upgrade --generate-hashes
-	pip-compile --upgrade --generate-hashes --output-file dev-requirements.txt dev-requirements.in
-	pip install --upgrade -r requirements.txt  -r dev-requirements.txt
+	pip-compile --upgrade --generate-hashes --output-file ${ENV}-requirements.txt
+	pip install --upgrade -r ${ENV}-requirements.txt
 
 install:
 	pip install --editable .
