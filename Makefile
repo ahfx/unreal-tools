@@ -1,9 +1,9 @@
-.PHONY: venv
+.PHONY: env
 
-venv: venv/Scripts/activate
+env: env/Scripts/activate
 
-venv/Scripts/activate:
-	python -m virtualenv -p python3 venv
+env/Scripts/activate:
+	python -m virtualenv -p python3 env
 
 install-std-deps:
 	pip install -U pip
@@ -22,10 +22,10 @@ install-remote-deps: install-std-deps
 	pip freeze --exclude-editable > requirements.txt
 
 install:
-	pip install --install-option="--prefix=${VP_TOOLS_INST_PATH}" -r requirements.txt
+	pip install --target ${VP_TOOLS_INST_PATH}/unreal-tools/${VP_TOOLS_SITE_SUFFIX} -r requirements.txt
 
-clean-venv:
-	rm -fr venv
+clean-env:
+	rm -fr env
 
 clean: 
 	rm -fr ${VP_TOOLS_INST_PATH}/unreal-tools

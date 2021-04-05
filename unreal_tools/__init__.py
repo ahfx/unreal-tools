@@ -1,6 +1,3 @@
-import dcc_tools
-
-def hello_world():
-	print("hello_world from unreal_tools again!")
-
-hello_world()
+"""
+unreal_tools - tools and scripts for running within the Unreal Editor
+"""
